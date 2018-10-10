@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Adivina el número secreto
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <!-- The world is your oyster.
+  <p>
+    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
+  </p> -->
+
+  <!-- Pegar input extraido de ionicframework.com 
+    https://ionicframework.com/docs/components/#inputs
+    https://beta.ionicframework.com/docs/api/input/
+  -->
+  <ion-input type="number" min= "1" max="10" 
+  [(ngModel)]="num" placeholder="Introduce un número del 1 al 10" >
+  </ion-input>
+  <p>El número secreto es {{mayorMenor}} {{num}}</p>
+
+<!-- Botones
+  https://ionicframework.com/docs/components/#buttons
+-->
+<button *ngIf="mayorMenor != ''" ion-button block (click)="compruebaNumero()">Adivina
+</button>
+
+<!-- Tarjetas (cards)
+  https://ionicframework.com/docs/components/#cards
+-->
+<ion-card *ngIf="mayorMenor == ''">
+    <ion-card-header>¡¡¡ENHORABUENA!!!</ion-card-header>
+    <ion-card-content>Has acertado. El número secreto es {{num}}</ion-card-content>
+
+</ion-card>
+
+
+<!-- Botones
+  https://ionicframework.com/docs/components/#buttons
+-->
+<button *ngIf="mayorMenor == ''" ion-button block (click)="reinicia()">Volver a jugar
+  </button>
+
+
+
+</ion-content>
